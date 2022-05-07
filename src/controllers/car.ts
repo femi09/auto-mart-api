@@ -47,3 +47,17 @@ export const getCar = async (
     next(error);
   }
 };
+
+export const deleteCar = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const response = await CarService.deleteCarAdvert(req.params.id);
+
+    res.status(200).send(response);
+  } catch (error) {
+    next(error);
+  }
+};
