@@ -18,9 +18,6 @@ const authMiddleware = async (
       token = req.headers.authorization.split(" ")[1];
     }
   
-    //   else if (req.cookies && req.cookies.token) {
-    //     token = req.cookies.token;
-    //   }
     if (!token) {
       throw new HttpException("Acess Denied! no token provided", 401);
     }

@@ -12,5 +12,6 @@ export class ICar {
   color: string;
   imageUrl: string;
   engineSize: string;
-    remove: any;
+  remove: any;
+  condition: string;
 }

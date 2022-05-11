@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { nextTick } from "process";
 import { CarService } from "../services/car";
 
 export const createCarAdvert = async (
@@ -27,6 +26,20 @@ export const getAllCars = async (
 ) => {
   try {
     const cars = await CarService.getAll();
+
+    res.status(200).send(cars);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getMyCars = async (
+  req: Request | any,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const cars = await CarService.getAllUserCars(req.user._id);
 
     res.status(200).send(cars);
   } catch (error) {
