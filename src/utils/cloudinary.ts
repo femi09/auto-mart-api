@@ -10,11 +10,6 @@ cloudinary.v2.config({
 
 const storage = cloudinaryStorage({
   cloudinary: cloudinary.v2,
-  params:{
-    folder: "car_images",
-    allowed_formats: ["jpg", "png"],
-    transformation: [{ width: 500, height: 500, crop: "limit" }],
-  },
 });
 
 const parser = multer({ storage });
