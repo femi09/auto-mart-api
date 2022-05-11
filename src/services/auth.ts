@@ -4,6 +4,7 @@ import HttpException from "../exception";
 import jwt, { Secret } from "jsonwebtoken";
 import { comparePassword, hashPassword } from "../utils/hashPassword";
 import { Types } from "mongoose";
+import { LoginDto } from "../dto/login.dto";
 
 export class AuthenticationService {
   static async register(registerData: RegisterDto) {
@@ -27,11 +28,12 @@ export class AuthenticationService {
       id: newUser._id,
       email: newUser.email,
       accessToken: token,
+      firstname: newUser.firstname,
     };
   }
 
-  static async login(registerData: RegisterDto) {
-    const { email, password } = registerData;
+  static async login(loginData: LoginDto) {
+    const { email, password } = loginData;
 
     const user = await UserRepository.findOne({ email });
 
@@ -51,6 +53,7 @@ export class AuthenticationService {
       id: user._id,
       email: user.email,
       accessToken: token,
+      firstname: user.firstname,
     };
   }
 

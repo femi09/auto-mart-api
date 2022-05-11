@@ -8,7 +8,11 @@ export class CarService {
   }
 
   static async getAll() {
-    return await CarRepository.findAll();
+    return await CarRepository.findAll({});
+  }
+
+  static async getAllUserCars(userId: string) {
+    return await CarRepository.findAll({ seller: userId });
   }
 
   static async getCarDetails(id: string) {

@@ -10,4 +10,5 @@ export class CarAdvertDto {
     color: string;
     imageUrl: string;
     engineSize: string;
+    condition: string;
   }

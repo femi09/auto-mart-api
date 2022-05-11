@@ -35,6 +35,10 @@ const carSchema = new Schema(
       type: String,
       required: [true, "year of manufacture is required"],
     },
+    condition: {
+      type: String,
+      required: [true, "condition is required"],
+    },
     imageUrl: {
       type: String,
       required: [true, "an image of the car is required"],

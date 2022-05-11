@@ -3,6 +3,7 @@ import express, { Router } from "express";
 import {
   createCarAdvert,
   getAllCars,
+  getMyCars,
   getCar,
   deleteCar,
 } from "../controllers/car";
@@ -16,6 +17,8 @@ router
   .route("/post_advert")
   .post(authMiddleware, parser.single("imageUrl"), createCarAdvert);
 router.route("/").get(authMiddleware, getAllCars);
+
+router.route("/my_cars").get(authMiddleware, getMyCars);
 
 router.route("/:id").get(authMiddleware, getCar);
 
